@@ -12,9 +12,7 @@ class UsuariosController extends AppController {
         'limit' => 10,
         'order' => array('Usuario.nome' => 'asc')    
     );
-    public function beforeFilter() {
-        $this->Auth->allow(array('logout','login'));            
-    }             
+           
     public function index() {
         if ($this->request->is('post') && !empty($this->request->data['Usuario']['nome'])) {
             $this->paginate['conditions']['Usuario.nome LIKE'] = '%' .trim($this->request->data['Usuario']['nome']) . '%';
