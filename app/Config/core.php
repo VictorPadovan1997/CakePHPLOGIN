@@ -229,7 +229,7 @@ Configure::write('debug', 2);
 	Configure::write('Session', array(
 		'defaults' => 'php',
 		'cookie' => 'filmes', //Nome arquivo
-		'timeout' => 10,
+		'timeout' => 2,
 		'cookieTimeout' => 0,
 		'checkAgent' => false
 	));

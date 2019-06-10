@@ -30,6 +30,8 @@ $form .= $this->Html->div('form-row',
         'error' => array('attributes' => array('class' => 'invalid-feedback')),
         'options' => $filmes
     ))
+
+        
 );
 $form .= $this->Js->submit('Gravar', array('div' => false, 'class' => 'btn btn-success', 'update' => '#content'));
 $form .= $this->Js->link('Voltar', '/criticas', array('class' => 'btn btn-secondary ml-3', 'update' => '#content'));

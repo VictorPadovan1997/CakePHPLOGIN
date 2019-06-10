@@ -20,4 +20,6 @@
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+    min-width: 2.50rem;
+
   }

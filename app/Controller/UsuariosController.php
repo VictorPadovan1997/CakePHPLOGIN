@@ -5,6 +5,7 @@ class UsuariosController extends AppController {
     public $layout = 'login';
 
     public $helpers = array('Js' => array('Jquery')); 
+
     
     public $paginate = array(
         'fields' => array('Usuario.id', 'Usuario.nome'),
@@ -12,6 +13,8 @@ class UsuariosController extends AppController {
         'limit' => 10,
         'order' => array('Usuario.nome' => 'asc')    
     );
+
+ 
            
     public function index() {
         if ($this->request->is('post') && !empty($this->request->data['Usuario']['nome'])) {
@@ -62,6 +65,6 @@ class UsuariosController extends AppController {
     }
     public function logout() {
         $this->Auth->logout();
-        $this->redirect('/login');
+        $this->redirect('/usuarios');
     }
 }

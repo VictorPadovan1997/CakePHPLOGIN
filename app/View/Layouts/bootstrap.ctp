@@ -44,8 +44,6 @@
             
                  <?php echo $this->Html->link($this->Html->tag('span',  '&#xe145;', array('class' => 'material-icons')) . 'Cadastrar Ator','/ators', array('class' => 'nav-link', 'escape' => false));
                  ?>
-
-              
             </a>
           </li>
          

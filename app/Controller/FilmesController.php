@@ -4,7 +4,7 @@ class FilmesController extends AppController {
 
     public $layout = 'bootstrap';
 
-   public $helpers = array('Js' => array('Jquery')); 
+   public $helpers = array('Js' => array('Jquery'), 'Pdf.Report', 'Pdf.Document'); 
     public $components = array('RequestHandler');
 
     public $paginate = array (
@@ -15,6 +15,9 @@ class FilmesController extends AppController {
 
     );
 
+    
+
+    
     public function index() {
         if ($this->request->is('post') && !empty($this->request->data['Filme']['nome'])) {
             $this->paginate['conditions']['Filme.nome LIKE'] = '%' .trim($this->request->data['Filme']['nome']) . '%';
@@ -22,6 +25,8 @@ class FilmesController extends AppController {
         $filmes = $this->paginate();
         $this->set('filmes', $filmes);        
     }
+
+
     public function add() {
         if (!empty($this->request->data)) {
             $this->Filme->create();
@@ -72,4 +77,13 @@ class FilmesController extends AppController {
         $this->Flash->bootstrap('Excluido com êxito.'); 
                 $this->redirect('/filmes');
     }
-}
+
+    public function  report(){
+        $this->layout = false;
+        $this->response->type('pdf');
+        $fields = array( 'Filme.nome', 'Filme.ano');
+        $filmes = $this->Filme->find('first', compact('fields'));
+        $this->set('filmes',$filmes);
+        }
+
+    }
